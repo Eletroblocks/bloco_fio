@@ -64,7 +64,7 @@
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
-<layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
@@ -76,16 +76,18 @@
 <library name="Eletroblocks Lib">
 <packages>
 <package name="3CONECTOR">
-<pad name="2" x="0" y="0" drill="0.6"/>
-<pad name="1" x="0" y="2.54" drill="0.6"/>
-<pad name="3" x="0" y="-2.54" drill="0.6"/>
-<hole x="0" y="2.54" drill="0.5"/>
-<hole x="0" y="0" drill="0.5"/>
-<hole x="0" y="-2.54" drill="0.5"/>
+<pad name="2" x="0" y="0" drill="0.75"/>
+<pad name="1" x="0" y="2.54" drill="0.75"/>
+<pad name="3" x="0" y="-2.54" drill="0.75"/>
+<hole x="0" y="2.54" drill="0.75"/>
+<hole x="0" y="0" drill="0.75"/>
+<hole x="0" y="-2.54" drill="0.75"/>
+<text x="-1.27" y="-3.81" size="0.8128" layer="21" font="fixed" rot="R90">&gt;NAME</text>
 </package>
 <package name="PAD">
-<pad name="P$1" x="0" y="0" drill="0.6" shape="offset"/>
-<hole x="0" y="0" drill="0.6"/>
+<pad name="P$1" x="0" y="0" drill="0.8" shape="offset"/>
+<hole x="0" y="0" drill="0.8"/>
+<text x="2.54" y="-1.27" size="0.6096" layer="21" font="fixed" rot="R90">&gt;NAME</text>
 </package>
 </packages>
 <symbols>
@@ -104,7 +106,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="CONECTOR" prefix="J">
+<deviceset name="CONECTOR_MACHO">
 <gates>
 <gate name="G$1" symbol="CONECTOR" x="0" y="0"/>
 </gates>
@@ -148,9 +150,9 @@
 </class>
 </classes>
 <parts>
-<part name="J1" library="Eletroblocks Lib" deviceset="CONECTOR" device="" override_package3d_urn="urn:adsk.eagle:package:23100835/3" override_package_urn="urn:adsk.eagle:footprint:23100837/1"/>
+<part name="J1" library="Eletroblocks Lib" deviceset="CONECTOR_MACHO" device="" override_package3d_urn="urn:adsk.eagle:package:23100835/3" override_package_urn="urn:adsk.eagle:footprint:23100837/1" override_locally_modified="yes"/>
 <part name="U$1" library="Eletroblocks Lib" deviceset="PAD" device=""/>
-<part name="U$2" library="Eletroblocks Lib" deviceset="PAD" device="" override_package3d_urn="urn:adsk.eagle:package:23100844/2" override_package_urn="urn:adsk.eagle:footprint:23100847/1"/>
+<part name="J3" library="Eletroblocks Lib" deviceset="PAD" device="" override_package3d_urn="urn:adsk.eagle:package:23100844/2" override_package_urn="urn:adsk.eagle:footprint:23100847/1" override_locally_modified="yes"/>
 <part name="VCC" library="Eletroblocks Lib" deviceset="PAD" device=""/>
 </parts>
 <sheets>
@@ -162,7 +164,7 @@
 <attribute name="NAME" x="2.52" y="107.65" size="1.778" layer="95"/>
 </instance>
 <instance part="U$1" gate="G$1" x="21.59" y="104.61" smashed="yes"/>
-<instance part="U$2" gate="G$1" x="21.51" y="100.58" smashed="yes"/>
+<instance part="J3" gate="G$1" x="21.51" y="100.58" smashed="yes"/>
 <instance part="VCC" gate="G$1" x="21.39" y="96.68" smashed="yes"/>
 </instances>
 <busses>
@@ -175,7 +177,7 @@
 <segment>
 <pinref part="J1" gate="G$1" pin="2"/>
 <wire x1="4.52" y1="100.65" x2="4.52" y2="100.61" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="P$1"/>
+<pinref part="J3" gate="G$1" pin="P$1"/>
 <wire x1="4.52" y1="100.65" x2="21.57" y2="100.65" width="0.1524" layer="91"/>
 <wire x1="21.57" y1="100.65" x2="21.51" y2="100.58" width="0.1524" layer="91"/>
 <junction x="4.52" y="100.65"/>
